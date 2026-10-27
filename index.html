@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f5f7">
+  <title>AlgoVision — DSA Visualizer</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="AlgoVision home"><span class="brand-mark">A</span> Algo<span>Vision</span></a>
+    <span class="top-note"><i></i> Learn by watching</span>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div class="eyebrow">ALGORITHMS, MADE VISIBLE</div>
+      <h1>See how algorithms <span>think.</span></h1>
+      <p>Explore sorting and searching one step at a time. Change the input, play the algorithm, and follow every comparison.</p>
+    </section>
+
+    <section class="workspace" aria-label="Algorithm visualizer">
+      <div class="controls">
+        <div class="control-group algorithm-group">
+          <label for="algorithm">ALGORITHM</label>
+          <select id="algorithm">
+            <option value="bubble">Bubble Sort</option>
+            <option value="selection">Selection Sort</option>
+            <option value="merge">Merge Sort</option>
+            <option value="binary">Binary Search</option>
+          </select>
+        </div>
+        <div class="control-group size-group">
+          <label for="size">ARRAY SIZE <b id="size-value">24</b></label>
+          <input id="size" type="range" min="8" max="40" value="24">
+        </div>
+        <div class="control-group speed-group">
+          <label for="speed">SPEED</label>
+          <select id="speed"><option value="650">Slow</option><option value="300" selected>Normal</option><option value="90">Fast</option></select>
+        </div>
+        <button class="button button-light" id="shuffle" type="button" title="Create a new random array">↻ <span>Shuffle</span></button>
+      </div>
+
+      <div class="search-controls" id="search-controls" hidden>
+        <label for="target">Find a value</label>
+        <input id="target" type="number" min="5" max="95" value="50">
+        <span>The array is sorted automatically for binary search.</span>
+      </div>
+
+      <div class="chart-wrap">
+        <div class="chart-heading"><span id="chart-title">Bubble Sort</span><span id="chart-hint">Choose an algorithm and press play</span></div>
+        <div class="bars" id="bars" role="img" aria-label="Array bars"></div>
+        <div class="legend" id="legend">
+          <span><i class="legend-bar compare"></i>Comparing</span>
+          <span><i class="legend-bar active"></i>Active / minimum</span>
+          <span><i class="legend-bar done"></i>Sorted</span>
+        </div>
+      </div>
+
+      <div class="action-row">
+        <div class="play-controls">
+          <button id="play" class="button button-primary" type="button"><span class="play-icon">▶</span><span>Play</span></button>
+          <button id="step" class="button button-light" type="button">Step</button>
+          <button id="reset" class="button button-light" type="button">Reset</button>
+        </div>
+        <div class="stats" aria-live="polite">
+          <div><span class="stat-label">COMPARISONS</span><strong id="comparisons">0</strong></div>
+          <div><span class="stat-label" id="secondary-label">SWAPS</span><strong id="secondary-count">0</strong></div>
+        </div>
+      </div>
+
+      <div class="status-line" aria-live="polite"><span class="status-dot"></span><span id="status">Ready when you are.</span></div>
+    </section>
+
+    <section class="complexity" aria-label="Algorithm information">
+      <div class="complexity-title"><div class="eyebrow">QUICK REFERENCE</div><h2>What’s happening under the hood?</h2></div>
+      <div class="complexity-cards">
+        <article><span>TIME COMPLEXITY</span><strong id="time-complexity">O(n²)</strong><p id="time-note">Average and worst case</p></article>
+        <article><span>SPACE COMPLEXITY</span><strong id="space-complexity">O(1)</strong><p id="space-note">Extra memory used</p></article>
+        <article class="idea-card"><span>CORE IDEA</span><p id="core-idea">Repeatedly compare neighbors and move the larger value toward the end.</p></article>
+      </div>
+      <p class="count-note" id="count-note">Counts are for this run. A comparison checks two values; a swap exchanges two values.</p>
+    </section>
+    <footer>Built to make the invisible steps easier to understand. <span>AlgoVision · DSA playground</span></footer>
+  </main>
+</body>
+</html>
